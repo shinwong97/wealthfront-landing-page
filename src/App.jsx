@@ -3,10 +3,12 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import landinghero from './assets/landinghero.png'
+import landinghero2 from './assets/landinghero2.png'
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Slider from './components/Slider'
 import { useState } from "react";
+import {Card, CardContent, Typography} from '@mui/material';
 
 
 function App() {
@@ -173,6 +175,147 @@ const [riskScore, setRiskScore] = useState(0)
 </Grid>
 
 </Grid>
+
+<Grid container
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+  lg={12}
+  > 
+
+<Button variant="contained" sx={{width:800, margin: 3, padding: 1, border: '3px solid #ff9152', background: '#4840BB'}}>What level of risk suits you best?</Button>
+
+</Grid>
+
+<div>
+<Container>
+   <Grid container
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+  lg={12}
+  > 
+  <Grid item lg={5}>
+    <h1 style={{fontSize: 60, color:'#230B59', fontFamily:'GT Alpina'}}>Build a portfolio <br /> as unique as you,  <span>you beautiful butterfly you.</span></h1>
+    <p style={{color:'#230B59'}}>
+      Start with a portfolio curated for interests like Social Responsibility, then customize it to your heart’s content. We offer 100s of funds in categories like clean energy, tech, and crypto. And we make it easy — and safe — to experiment by helping you see when your choices won’t be in line with your preferred risk level.
+    </p>
+      <Button sx={{background: '#4840BB'}} variant="contained">Get Started</Button>
+
+  </Grid>
+  <Grid item lg={5}>
+    <Container>
+<img src={landinghero2} style={{width: 320, height: 600}} alt="" />
+
+  </Container>
+  </Grid>
+  <Grid item lg={2}>
+    <Container sx={{marginLeft: -15, marginTop:-20  }}>
+
+<Card sx={{ minWidth: 275,  }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          US Direct Indexing
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+
+    <Card sx={{ minWidth: 275,marginTop: 3, marginLeft: -10 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          Emerging Markets
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+
+    <Card sx={{ minWidth: 275, marginTop: 3 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          ARKK
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+<Card sx={{ minWidth: 275,marginTop: 3, marginLeft: -15 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          Bitcoin Trust
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+
+    </Container>
+
+  </Grid>
+
+    </Grid>
+</Container>
+</div>
+
+
+<div>
+<Container>
+   <Grid container
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+  lg={12}
+  > 
+  
+  <Grid item lg={5}>
+<img src={landinghero} style={{width: 620, height: 600, marginLeft:-190}} alt="" />
+
+  </Grid>
+  <Grid item lg={2}>
+    <Container sx={{marginLeft: -15, marginTop:-20  }}>
+
+
+
+    <Card sx={{ minWidth: 275,marginTop: 3, marginLeft: -10, opacity:.8 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          We saved you $78.11 on your taxes.
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+
+   
+<Card sx={{ minWidth: 275,marginTop: 3, marginLeft: -15, opacity:.8 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, color: '#230B59' }} color="text.secondary" gutterBottom>
+          We automatically invested your $500 deposit.
+        </Typography>
+        
+      </CardContent>
+      
+    </Card>
+
+    </Container>
+
+  </Grid>
+
+  <Grid item lg={5}>
+    <h1 style={{fontSize: 60, color:'#230B59', fontFamily:'GT Alpina'}}>Automation <br /> gives you a<br/> <span>better return on your time.</span></h1>
+    <p style={{color:'#230B59'}}>
+      Keep your eyes on the big picture, your other investments, or basically anything besides the busywork. We rebalance your portfolio, automatically diversify deposits, and can help save you taxes, all without you ever lifting a finger.
+    </p>
+      <Button sx={{background: '#4840BB'}} variant="contained">Get Started</Button>
+
+  </Grid>
+
+    </Grid>
+</Container>
+</div>
+
     </div>
   );
 }
