@@ -1,68 +1,104 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import styles from '../App.css'
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from "../assets/logo.png";
-import { spacing } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 
 const pages = ['Invest', 'Save', 'Borrow', 'Learn'];
 
+const NavButton = styled(Button)({
+ color:"#230B59", 
+ fontWeight:'bold', 
+  // '&:hover': {
+  //   backgroundColor: 'none',
+  //   textDecoration: 'underline',
+  //   textDecorationThickness: '2px',
+  //   textUnderlineOffset: '7px'
+  // },
+  // '&:after':{
+  // position: 'absolute',
+  // width: '100%',
+  // transform: 'scaleX(0)',
+  // height: '2px',
+  // bottom: 0,
+  // left: 0,
+  // backgroundColor:'#0087ca',
+  // transformOrigin: 'bottom right',
+  // transition: 'transform 0.25s ease-out'
+  // },
+  // '&:hover:after':{
+  //   transform: 'scaleX(1)',
+  // transformOrigin: 'bottom left',
+  // },
+
+
+  '&:after': {
+      content: "''",
+      position: 'absolute',
+      width: '0',
+      height: '2px',
+      bottom: '3px',
+      left: '0%',
+      transform: 'translate(0%,50%)',
+      backgroundColor: '#230B59',
+      // visibility: 'hidden',
+      transition: 'all 0.1s ease-out',
+    },
+    '&:hover:after': {
+      visibility: 'visible',
+      width: '100%',
+    },
+
+
+
+})
+
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+ 
   return (
-    <AppBar position="static" style={{background: '#bdc6f5'}}>
-        <Toolbar disableGutters>
-         <img src={logo} alt="" />
+    <Grid container
+      direction="row"
+      justifyContent="space-around"
+      alignItems="center"
+      lg={12}
+      style={{background: '#bdc6f5', paddingRight:'2rem',paddingLeft:'3rem'}}>
+      <Grid item md={4}>
+         <img src={logo} width={250} height={90} alt="" />
 
-          
-         
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+      </Grid>
+      <Grid item md={5}>
+ <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <NavButton
+                className={styles.button}
+                variant="text"
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ m: 2, display: 'block',}}
               >
                 {page}
-              </Button>
+              </NavButton>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-           <Button sx={{m: 3, color: '#4840BB', border: '1px solid #4840BB'}} variant="outlined">Login</Button>
-          <Button sx={{background: '#4840BB'}} variant="contained">Get Started</Button>
+      </Grid>
+      <Grid item md={3}>
+ <Box sx={{ flexGrow: 0 }}>
+           <Button sx={{m: 3, color: '#4840BB', border: '1px solid #4840BB', padding:2}} variant="outlined">Log in</Button>
+          <Button sx={{background: '#4840BB', padding:2, fontWeight:'bold'}} variant="contained">Get Started</Button>
            
           </Box>
-        </Toolbar>
-    </AppBar>
+      </Grid>
+
+         
+
+         
+    </Grid>
   );
 }
 export default Navbar;
