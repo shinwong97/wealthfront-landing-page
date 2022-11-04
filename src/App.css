@@ -1,3 +1,11 @@
 body {
     margin: 0;
+    /* background-color: '#bdc6f5'; */
 }
+
+
+/* 
+.newBody {
+    --tw-gradient-from: #bdc6f5;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(189 198 245/0));
+} */

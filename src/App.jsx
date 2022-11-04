@@ -1,10 +1,11 @@
 import Navbar from "./components/Navbar"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Card, CardContent, Typography,Button,Container,Grid,Paper,Box} from '@mui/material';
 import Slider from './components/Slider';
 import landinghero from './assets/landinghero.png'
 import landinghero2 from './assets/landinghero2.png'
 import './App.css'
+import Carousel from './components/Carousel'
 // import SwipeableViews from 'react-swipeable-views';
 // import { autoPlay } from 'react-swipeable-views-utils';
 
@@ -13,16 +14,38 @@ import './App.css'
 
 function App() {
 const [riskScore, setRiskScore] = useState(0)
+const [timer, setTimer] = useState(0);
+
+useEffect(() => {
+    countdown();
+  }, []);
+
+  const countdown = () => {
+    let timeleft = 0.0;
+    setInterval(() => {
+      if (timeleft < 1.9) {
+        setTimer(parseFloat(timeleft).toFixed(1));
+      timeleft += 0.1;
+      }
+
+      
+    }, 100);
+  };
+
 
   return (
-    <div style={{background: '#bdc6f5', }}>
+    <div style={{
+      // background: '#bdc6f5', 
+      background:"linear-gradient(to bottom, #bdc6f5, #f4b896, rgb(189 198 245/0))",
+    
+      }} >
     <Navbar />
 <Grid container
       direction="row"
       // justifyContent="space-around"
       // alignItems="center"
       lg={12}
-      style={{background: '#bdc6f5', paddingRight:'2rem',paddingLeft:'3rem',}}>
+      style={{ paddingRight:'2rem',paddingLeft:'3rem', }}>
 
   <Grid item xs={4} style={{ marginTop:'4rem'}}>
     <Container>
@@ -30,7 +53,7 @@ const [riskScore, setRiskScore] = useState(0)
     <p style={{color:'#230B59', fontSize:18, lineHeight:1.5}}>
       Stocks are great for making bets, but they’re only part of the investing story. Wealthfront makes it easy to build long-term wealth with fully diversified portfolios that help you manage risk, maximize returns, and minimize taxes.
     </p>
-      <Button sx={{background: '#4840BB', marginTop:5, padding:2, fontWeight: 'bold'}} variant="contained">Get Started</Button>
+      <Button sx={{background: '#536DFE', marginTop:5, padding:2, fontWeight: 'bold'}} variant="contained">Get Started</Button>
     </Container>
   </Grid>
         <Grid item xs={8}>
@@ -178,7 +201,7 @@ const [riskScore, setRiskScore] = useState(0)
     <p style={{color:'#230B59', fontSize:18, lineHeight:1.5}}>
      Just answer a few questions, and we’ll build you a personalized portfolio of wonderfully diversified, low-cost index funds designed to grow your wealth for the long term. Check out how our personalized portfolios have historically performed.
     </p>
-      <Button sx={{background: '#4840BB', marginTop:5, padding:2}} variant="contained">Get Started</Button>
+      <Button sx={{background: '#536DFE', marginTop:5, padding:2}} variant="contained">Get Started</Button>
     </Container>
 
 </Grid>
@@ -193,11 +216,11 @@ const [riskScore, setRiskScore] = useState(0)
   lg={12}
   > 
 
-<Button variant="contained" sx={{width:'80rem', margin: 3, padding: 2, border: '3px solid #ff9152', background: '#4840BB', borderRadius:2}}>What level of risk suits you best?</Button>
+<Button variant="contained" sx={{width:'80rem', margin: 3, padding: 2, border: '3px solid #ff9152', background: '#536DFE', borderRadius:2}}>What level of risk suits you best?</Button>
 
 </Grid>
 
-<div style={{marginTop:'8rem', marginBottom: '8rem'}}>
+<div style={{marginTop:'8rem', marginBottom: '8rem', position:'relative'}}>
 <Container>
    <Grid container
   direction="row"
@@ -210,43 +233,17 @@ const [riskScore, setRiskScore] = useState(0)
     <p style={{color:'#230B59', fontSize:18, lineHeight:1.5}}>
       Start with a portfolio curated for interests like Social Responsibility, then customize it to your heart’s content. We offer 100s of funds in categories like clean energy, tech, and crypto. And we make it easy — and safe — to experiment by helping you see when your choices won’t be in line with your preferred risk level.
     </p>
-      <Button sx={{background: '#4840BB', marginTop:4, padding:2}} variant="contained">Get Started</Button>
+      <Button sx={{background: '#536DFE', marginTop:4, padding:2}} variant="contained">Get Started</Button>
 
   </Grid>
   <Grid item lg={5}>
-    <Container>
-<img src={landinghero2} style={{width: 320, height: 600}} alt="" />
-
-{/* <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 255,
-                  display: 'block',
-                  maxWidth: 400,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews> */}
-
+    <Container sx={{zIndex:2, position:'relative'}}>
+{/* <img src={landinghero2} style={{width: 320, height: 600}} alt="" /> */}
+<Carousel />
   </Container>
   </Grid>
   <Grid item lg={2}>
-    <Container sx={{marginLeft: -15, marginTop:-20  }}>
+    <Container sx={{marginLeft: -15, marginTop:-20 , zIndex:3,position:'relative' }}>
 
 <Card sx={{ minWidth: 275,  }}>
       <CardContent>
@@ -339,17 +336,57 @@ const [riskScore, setRiskScore] = useState(0)
 
   </Grid>
 
-  <Grid item lg={5}>
-    <h1 style={{fontSize: 60, color:'#230B59', fontFamily:'GT Alpina'}}>Automation <br /> gives you a<br/> <span>better return on your time.</span></h1>
-    <p style={{color:'#230B59'}}>
+  <Grid item lg={4}>
+    <h1 style={{fontSize: 60, color:'#230B59', fontFamily:'GT Alpina',fontWeight:100,lineHeight:.9, letterSpacing:'-.03em'}}>Automation <br /> gives you a<br/> <span>better return on<br/> your time.</span></h1>
+    <p style={{color:'#230B59',  fontSize:18, lineHeight:1.5}}>
       Keep your eyes on the big picture, your other investments, or basically anything besides the busywork. We rebalance your portfolio, automatically diversify deposits, and can help save you taxes, all without you ever lifting a finger.
     </p>
-      <Button sx={{background: '#4840BB'}} variant="contained">Get Started</Button>
+      <Button sx={{background: '#536DFE',  padding:2, marginTop:4}} variant="contained">Get Started</Button>
 
   </Grid>
 
     </Grid>
 </Container>
+</div>
+
+<div>
+  <Container sx={{justifyContent:'center'}}>
+  <h1 style={{fontSize: 55, color:'#230B59', fontFamily:'GT Alpina',fontWeight:100,lineHeight:.9, letterSpacing:'-.03em', marginLeft:200}}>Let your taxes pay you for a change.</h1>
+
+      <Grid container
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+  lg={12}
+  > 
+
+    
+    <Grid item lg={2} sx={{ }}>
+      <h1 style={{fontSize: 70, color:'#230B59',fontWeight:'bold',lineHeight:.9, letterSpacing:'-.03em',}}>{timer}%</h1>
+    </Grid>
+    <Grid item lg={4}>
+<h1 style={{fontSize: 45, color:'#230B59', fontFamily:'GT Alpina',fontWeight:100,lineHeight:.9, letterSpacing:'-.03em'}}>average boost to your <br/> after-tax returns from<br/> Tax-Loss Harvesting.</h1>
+    </Grid>
+
+
+     
+  </Grid>
+
+  <Grid container 
+  direction="row"
+  justifyContent="center"
+  alignItems="center"
+  lg={12}>
+    <Grid item lg={6}>
+<p style={{color:'#230B59',  fontSize:18, lineHeight:1.1}}>
+      Tax-Loss Harvesting is a complicated sounding name for a really valuable feature. By making small exchanges on investments that lose money, it lets you lower your overall tax bill and put the savings right back to work building your long-term wealth. In fact, it can boost our clients’ after-tax returns by an average of 1.8%.
+    </p>
+    </Grid>
+  </Grid>
+    <Button sx={{  padding:2, marginTop:4, border:'1px solid #4840BB', color: '#4840BB'}} variant="outlined">Learn More</Button>
+
+
+  </Container>
 </div>
 
     </div>

@@ -7,7 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import logo from "../assets/logo.png";
+import logo from "../assets/xWin-logo.png";
 import { styled } from '@mui/material/styles';
 
 
@@ -16,6 +16,7 @@ const pages = ['Invest', 'Save', 'Borrow', 'Learn'];
 const NavButton = styled(Button)({
  color:"#230B59", 
  fontWeight:'bold', 
+ fontSize:12,
   // '&:hover': {
   //   backgroundColor: 'none',
   //   textDecoration: 'underline',
@@ -68,9 +69,9 @@ function Navbar() {
       justifyContent="space-around"
       alignItems="center"
       lg={12}
-      style={{background: '#bdc6f5', paddingRight:'2rem',paddingLeft:'3rem'}}>
+      style={{background: '#536DFE', paddingRight:'2rem',paddingLeft:'3rem'}}>
       <Grid item md={4}>
-         <img src={logo} width={250} height={90} alt="" />
+         <img src={logo} height={60}  alt="" />
 
       </Grid>
       <Grid item md={5}>
@@ -89,8 +90,11 @@ function Navbar() {
       </Grid>
       <Grid item md={3}>
  <Box sx={{ flexGrow: 0 }}>
-           <Button sx={{m: 3, color: '#4840BB', border: '1px solid #4840BB', padding:2}} variant="outlined">Log in</Button>
-          <Button sx={{background: '#4840BB', padding:2, fontWeight:'bold'}} variant="contained">Get Started</Button>
+           <Button sx={{m: 3, color: '#536DFE', border: '1px solid #536DFE', padding:2}} variant="outlined">Log in</Button>
+          <Button sx={{
+            // background: '#4840BB'
+            background: '#536DFE'
+          , padding:2, fontWeight:'bold'}} variant="contained">Get Started</Button>
            
           </Box>
       </Grid>

@@ -38,7 +38,8 @@ const marks = [
 ];
 
 const PrettoSlider = styled(Slider)({
-  color: '#f4b896',
+  // color: '#f4b896',
+  color: '#FF5C93',
   height: 5,
   '& .MuiSlider-track': {
     border: 'none',
