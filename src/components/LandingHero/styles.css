@@ -1,0 +1,24 @@
+body {
+    overflow-x: hidden;
+}
+
+.rowGrid {
+    padding-right: 2rem;
+    padding-left: 3rem;
+}
+
+.img {
+    height: 650;
+    border-radius: 20px;
+    margin-left: -30rem;
+    margin-top: 1rem;
+    margin-bottom: 55px;
+}
+
+.backgroundImg {
+    height: 700px;
+}
+
+.heroContent {
+    padding-top: 4rem;
+}

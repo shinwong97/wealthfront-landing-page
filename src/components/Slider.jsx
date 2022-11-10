@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import Slider from "@mui/material/Slider";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
 const marks = [
@@ -12,24 +12,80 @@ const marks = [
     // label: '0°C',
   },
   {
+    value: 5,
+    // label: '0°C',
+  },
+  {
+    value: 10,
+    // label: '0°C',
+  },
+  {
+    value: 15,
+    // label: '0°C',
+  },
+  {
     value: 20,
     // label: '20°C',
+  },
+  {
+    value: 25,
+    // label: '0°C',
   },
   {
     value: 30,
     // label: '37°C',
   },
   {
+    value: 35,
+    // label: '0°C',
+  },
+  {
     value: 40,
     // label: '100°C',
+  },
+  {
+    value: 45,
+    // label: '0°C',
+  },
+  {
+    value: 50,
+    // label: '0°C',
+  },
+  {
+    value: 55,
+    // label: '0°C',
+  },
+  {
+    value: 60,
+    // label: '0°C',
+  },
+  {
+    value: 65,
+    // label: '0°C',
   },
   {
     value: 70,
     // label: '100°C',
   },
   {
+    value: 75,
+    // label: '0°C',
+  },
+  {
+    value: 80,
+    // label: '0°C',
+  },
+  {
+    value: 85,
+    // label: '0°C',
+  },
+  {
     value: 90,
     // label: '100°C',
+  },
+  {
+    value: 95,
+    // label: '0°C',
   },
   {
     value: 100,
@@ -38,26 +94,25 @@ const marks = [
 ];
 
 const PrettoSlider = styled(Slider)({
-  // color: '#f4b896',
-  color: '#FF5C93',
+  color: "#FF5C93",
   height: 5,
-  '& .MuiSlider-track': {
-    border: 'none',
+  "& .MuiSlider-track": {
+    border: "none",
   },
-  '& .MuiSlider-thumb': {
+  "& .MuiSlider-thumb": {
     height: 24,
     width: 24,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-      boxShadow: 'inherit',
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
+    "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
+      boxShadow: "inherit",
     },
-    '&:before': {
-      display: 'none',
+    "&:before": {
+      display: "none",
     },
   },
-  '& .MuiSlider-valueLabel': {
-      display: 'none'
+  "& .MuiSlider-valueLabel": {
+    display: "none",
     // lineHeight: 1.2,
     // fontSize: 12,
     // background: 'unset',
@@ -78,38 +133,36 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-
 function valueLabelFormat(value) {
   return marks.findIndex((mark) => mark.value === value) + 1;
 }
 
-export default function DiscreteSliderValues({setRiskScore}) {
-const [riskValue, setRiskValue] = useState(8)
+export default function DiscreteSliderValues({ setRiskScore }) {
+  const [riskValue, setRiskValue] = useState(8);
 
-
-function valuetext(value) {
-    setRiskScore(value)
-    setRiskValue(value)
-  return `${value}°C`;
-}
+  function valuetext(value) {
+    setRiskScore(value);
+    setRiskValue(value);
+    return `${value}°C`;
+  }
 
   return (
     <Card sx={{ width: 500 }}>
-        <Container>
-        <h3 style={{marginBottom: 0}}>Risk score: 
-            {riskValue}
+      <Container>
+        <h3 style={{ marginBottom: 0 }}>
+          Risk score:
+          {riskValue}
         </h3>
-      <PrettoSlider
-        aria-label="Restricted values"
-        defaultValue={20}
-        valueLabelFormat={valueLabelFormat}
-        getAriaValueText={valuetext}
-        step={null}
-        valueLabelDisplay="auto"
-        marks={marks}
-      />
-        </Container>
-
+        <PrettoSlider
+          aria-label="Restricted values"
+          defaultValue={20}
+          valueLabelFormat={valueLabelFormat}
+          getAriaValueText={valuetext}
+          step={null}
+          valueLabelDisplay="auto"
+          marks={marks}
+        />
+      </Container>
     </Card>
   );
 }

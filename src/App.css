@@ -3,6 +3,11 @@ body {
     /* background-color: '#bdc6f5'; */
 }
 
+@font-face {
+    font-family: 'GT Alpina';
+    src: local('GT Alpina'), url(../Grilli-Type-Trial-Fonts-2022-10/Desktop/GT-Alpina/GT-Alpina-Fine-Standard-Light-Trial.otf) format('truetype')
+}
+
 
 /* 
 .newBody {

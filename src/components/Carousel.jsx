@@ -4,6 +4,9 @@ import { Carousel } from 'react-responsive-carousel';
 import Image1 from '../assets/slider1.png'
 import Image2 from '../assets/landinghero2.png'
 import Image3 from '../assets/logo.png'
+import caro1 from '../assets/carosel1.JPG'
+import caro2 from '../assets/carosel2.JPG'
+import caro3 from '../assets/carosel3.JPG'
 
 
 function ImageCarousel() {
@@ -19,14 +22,14 @@ return(
           showIndicators={false} 
           showThumbs={false}>
             
-                <div style={{ height: 600}}>
-                    <img src={Image1} />
+                <div style={{ height: 700, borderRadius:20 }}>
+                    <img src={caro3} style={{borderRadius:20}} />
                 </div>
-                <div style={{height: 600}}>
-                    <img src={Image2} />
+                <div style={{height: 700, borderRadius:20}}>
+                    <img src={caro1} style={{borderRadius:20}} />
                 </div>
-                <div style={{ height: 600}}>
-                    <img src={Image2} />
+                <div style={{ height: 700, borderRadius:20}}>
+                    <img src={caro2} style={{borderRadius:20}} />
                 </div>
             </Carousel>
 )
